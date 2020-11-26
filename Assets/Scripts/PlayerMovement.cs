@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement player;
 
     public CharacterController2D controller;
 
@@ -12,6 +13,11 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0f;
     bool jump = false;
     bool crouch = false;
+
+    private void Awake()
+    {
+        player = this;
+    }
 
     // Update is called once per frame
     void Update()
