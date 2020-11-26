@@ -23,23 +23,23 @@ public class Looting : MonoBehaviour
 
     private void CollectLoot(GameObject loot)
     {
-        /*switch (loot.tag)
+        switch (loot.tag)
         {
             case "Soul":
                 CollectSoul();
                 break;
             default:
                 break;
-        }*/
+        }
         Destroy(loot);
     }
 
-    /*private void CollectSoul()
+    private void CollectSoul()
     {
         if (UIManager.manager != null)
         {
             UIManager.manager.souls++;
         }
-    }*/
+    }
 
 }
