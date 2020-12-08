@@ -7,6 +7,10 @@ public class Health : MonoBehaviour
 
     [SerializeField]
     private int maxHealth = 1;
+    [SerializeField]
+    Transform spawnPoint;
+
+    public Animator animator;
 
     private int currentHealth;
 
@@ -23,6 +27,7 @@ public class Health : MonoBehaviour
         //option for Loot can be added here
         if (currentHealth <= 0)
         {
+            animator.SetInteger("Health", 0);
             Die();
         }
     }
@@ -30,7 +35,17 @@ public class Health : MonoBehaviour
     public void Die()
     {
         currentHealth = 0;
-        Destroy(gameObject);
+        if (gameObject.transform.CompareTag("Player"))
+        {
+            animator.SetInteger("Health", 1);
+            gameObject.transform.position = spawnPoint.position;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
+
     }
 
     public int GetCurrent()

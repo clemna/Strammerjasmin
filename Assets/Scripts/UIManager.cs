@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         int health = playerHealth.GetCurrent();
         while (health < iconInstances.Count)
@@ -64,7 +64,7 @@ public class UIManager : MonoBehaviour
                 TogglePauseUI();
             }
         }
-    }
+    }*/
 
     private void LateUpdate()
     {
