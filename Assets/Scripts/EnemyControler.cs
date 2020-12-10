@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class EnemyControler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float speed;
+    public bool moveRight;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (moveRight)
+        {
+            transform.Translate(2 * Time.deltaTime * speed, 0, 0);
+            
+        }
+        else
+        {
+            transform.Translate(-2 * Time.deltaTime * speed, 0, 0);
+            
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Destroy(gameObject);
+
     }
 }

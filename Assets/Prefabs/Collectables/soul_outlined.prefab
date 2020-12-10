@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 425818848108493477}
   - component: {fileID: 152615881907201864}
-  - component: {fileID: 152615881907201863}
   m_Layer: 0
   m_Name: soul_outlined
   m_TagString: Soul
@@ -60,20 +59,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4903078, y: 0.8926978}
   m_EdgeRadius: 0
---- !u!114 &152615881907201863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72701925477877510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91ab3952b181a7c43acf47f9b285d587, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 20
-  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &2229592068040606869
 GameObject:
   m_ObjectHideFlags: 0
