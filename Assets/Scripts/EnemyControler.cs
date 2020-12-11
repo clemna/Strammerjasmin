@@ -7,6 +7,7 @@ public class EnemyControler : MonoBehaviour
     public float speed;
     public bool moveRight;
 
+
     private void Update()
     {
         if (moveRight)
