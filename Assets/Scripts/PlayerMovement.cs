@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     float horizontalMove = 0f;
     bool jump = false;
-    bool crouch = false;
+    bool dash = false;
 
     private void Awake()
     {
@@ -25,24 +25,23 @@ public class PlayerMovement : MonoBehaviour
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
+
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
         }
 
-        if (Input.GetButtonDown("Crouch"))
+        if (Input.GetButtonDown("Fire1"))
         {
-            crouch = true;
-        } else if(Input.GetButtonUp("Crouch"))
-        {
-            crouch = false;
+            dash = true;
         }
 
     }
 
     void FixedUpdate()
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash);
         jump = false;
+        dash = false;
     }
 }
