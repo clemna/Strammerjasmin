@@ -864,11 +864,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1368144526777139068, guid: d4ff5d37044263648943132d5487df78, type: 3}
   m_PrefabInstance: {fileID: 1368144525970030454}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &892805358 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1368144526029264851, guid: d4ff5d37044263648943132d5487df78, type: 3}
-  m_PrefabInstance: {fileID: 1368144525970030454}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1049280588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,8 +1176,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1694074602}
-  - component: {fileID: 1694074601}
-  - component: {fileID: 1694074600}
   - component: {fileID: 1694074599}
   - component: {fileID: 1694074598}
   m_Layer: 0
@@ -1239,55 +1232,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!23 &1694074600
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694074597}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 00d7085edfe454a4484ed2afd8ff7891, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1694074601
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694074597}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1694074602
 Transform:
   m_ObjectHideFlags: 0
@@ -1387,21 +1331,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b96e53de03b3748821af6008c22002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   m_JumpForce: 200
-  m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
   m_GroundCheck: {fileID: 832330899}
-  m_CeilingCheck: {fileID: 892805358}
-  m_CrouchDisableCollider: {fileID: 0}
-  OnLandEvent:
+  m_WallCheck: {fileID: 0}
+  canDoubleJump: 1
+  m_DashForce: 25
+  life: 10
+  invincible: 0
+  particleJumpUp: {fileID: 0}
+  particleJumpDown: {fileID: 0}
+  OnFallEvent:
     m_PersistentCalls:
       m_Calls: []
-  OnCrouchEvent:
+  OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!50 &1769624525
