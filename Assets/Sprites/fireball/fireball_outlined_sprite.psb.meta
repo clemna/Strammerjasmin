@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e0f5601569571d3458ad3c2f3ac9275a
+guid: b3e9c513c43deec49b509add56c22787
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -27,7 +27,7 @@ ScriptedImporter:
     vTOnly: 0
     nPOTScale: 1
     sRGBTexture: 1
-    spriteMode: 2
+    spriteMode: 1
     spriteExtrude: 1
     spriteMeshType: 1
     alignment: 0
@@ -65,18 +65,18 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   spriteImportData:
-  - name: 
+  - name: fireball_outlined_sprite_1
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 0
-      height: 0
-    spriteID: 
+      width: 291
+      height: 291
+    spriteID: fda9c0230d4db954086b90078b1a2262
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -89,7 +89,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Layer 2
+  - name: Ellipse 1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -98,31 +98,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 318
-      width: 137
-      height: 141
-    spriteID: 27d7ed76a7cbaf74692fc9219a0c89d8
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: -22, y: 241}
-  - name: Ellipse 1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 276
-      y: 4
-      width: 157
+      width: 161
       height: 102
-    spriteID: 4a58dbc58ee67574eb24cf289b5223cc
+    spriteID: d3539ef17eeee654097a9cd4c602f2b2
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -132,7 +110,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 232, y: -92}
+    uvTransform: {x: -36, y: 222}
   - name: Layer 4
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -144,7 +122,7 @@ ScriptedImporter:
       y: 192
       width: 174
       height: 118
-    spriteID: 780e426aa6d953c46bd05ca46d76418c
+    spriteID: a1f01d3e22bdeae4db8ee57bba18684a
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -164,9 +142,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 264
+      width: 272
       height: 180
-    spriteID: 8b4819e47b99ae94b98b681ba8e128a0
+    spriteID: 412f7f5ba651e314d8c24afbe98f7292
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -176,7 +154,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -18, y: -51}
+    uvTransform: {x: -10, y: -51}
   platformSettings: []
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
@@ -189,39 +167,32 @@ ScriptedImporter:
   keepDupilcateSpriteName: 0
   spriteCategoryList:
     categories: []
-  textureActualWidth: 512
-  textureActualHeight: 512
+  textureActualWidth: 291
+  textureActualHeight: 291
   spritePackingTag: 
   resliceFromLayer: 0
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Layer 2
-    spriteName: Layer 2
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 27d7ed76a7cbaf74692fc9219a0c89d8
-    layerID: 14
-    mosaicPosition: {x: 4, y: 318}
   - name: Ellipse 1
     spriteName: Ellipse 1
     isGroup: 0
     parentIndex: -1
-    spriteID: 4a58dbc58ee67574eb24cf289b5223cc
+    spriteID: d3539ef17eeee654097a9cd4c602f2b2
     layerID: 5
-    mosaicPosition: {x: 276, y: 4}
+    mosaicPosition: {x: 4, y: 318}
   - name: Layer 4
     spriteName: Layer 4
     isGroup: 0
     parentIndex: -1
-    spriteID: 780e426aa6d953c46bd05ca46d76418c
+    spriteID: a1f01d3e22bdeae4db8ee57bba18684a
     layerID: 18
     mosaicPosition: {x: 4, y: 192}
   - name: Layer 1
     spriteName: Layer 1
     isGroup: 0
     parentIndex: -1
-    spriteID: 8b4819e47b99ae94b98b681ba8e128a0
+    spriteID: 412f7f5ba651e314d8c24afbe98f7292
     layerID: 12
     mosaicPosition: {x: 4, y: 4}
   characterData:
@@ -230,7 +201,7 @@ ScriptedImporter:
     dimension: {x: 0, y: 0}
     characterGroups: []
   generateGOHierarchy: 0
-  textureAssetName: fireball_outlined Texture
-  prefabAssetName: fireball_outlined Prefab
-  spriteLibAssetName: fireball_outlined Sprite Lib
+  textureAssetName: fireball_outlined_sprite Texture
+  prefabAssetName: fireball_outlined_sprite Prefab
+  spriteLibAssetName: fireball_outlined_sprite Sprite Lib
   secondarySpriteTextures: []
