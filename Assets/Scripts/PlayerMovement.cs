@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     bool dash = false;
 
+    private Vector2 lastDirection;
+
     private void Awake()
     {
         player = this;

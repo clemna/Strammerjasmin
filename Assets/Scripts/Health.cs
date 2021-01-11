@@ -9,6 +9,8 @@ public class Health : MonoBehaviour
     private int maxHealth = 1;
     [SerializeField]
     Transform spawnPoint;
+    [SerializeField]
+    Transform PlayerToSpawn;
 
     public Animator animator;
 
@@ -37,9 +39,13 @@ public class Health : MonoBehaviour
         currentHealth = 0;
         if (gameObject.transform.CompareTag("Player"))
         {
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
             animator.SetInteger("Health", 1);
             gameObject.transform.position = spawnPoint.position;
-        }
+        
+            //Destroy(gameObject);
+            //Instantiate(PlayerToSpawn, spawnPoint.position, spawnPoint.rotation);
+            }
         else
         {
             Destroy(gameObject);
