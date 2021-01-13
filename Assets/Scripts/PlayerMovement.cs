@@ -10,11 +10,11 @@ public class PlayerMovement : MonoBehaviour
 
     public float runSpeed = 40f;
 
+    private float lastDirection = 0;
+
     float horizontalMove = 0f;
     bool jump = false;
     bool dash = false;
-
-    private Vector2 lastDirection;
 
     private void Awake()
     {
@@ -26,6 +26,14 @@ public class PlayerMovement : MonoBehaviour
     {
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        if (Input.GetAxisRaw("Horizontal") > 0)
+        {
+            lastDirection = 1;
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0)
+        {
+            lastDirection = -1;
+        }
 
 
         if (Input.GetButtonDown("Jump"))
@@ -43,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash, lastDirection);
         jump = false;
         dash = false;
     }

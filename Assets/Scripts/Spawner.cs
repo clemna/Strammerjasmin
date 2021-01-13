@@ -10,27 +10,48 @@ public class Spawner : MonoBehaviour
     private int spawnCounter = 10;
     [SerializeField]
     private float spawnCooldown = 2;
+    public bool useSequence = false;
+    [SerializeField]
+    private bool[] sequence = new bool[1];
+
     private float lastSomethingSpawned;
 
-    [SerializeField]
-    private Transform spawnArea = null;
 
     void Update()
     {
+        if (Time.time > lastSomethingSpawned + spawnCooldown)
+        {
+            lastSomethingSpawned = Time.time;
 
-        
-            if (Time.time > lastSomethingSpawned + spawnCooldown && spawnCounter > 0)
+            Vector2 spawnPosition;
+
+            spawnPosition = transform.position;
+
+            if (useSequence == true)
             {
-                lastSomethingSpawned = Time.time;
-
-                Vector2 spawnPosition;
-              
-                spawnPosition = transform.position;
-                
-
+                spawnSequence(spawnCounter);
+            }
+            else
+            {
                 GameObject newBullet = GameObject.Instantiate(somethingToSpawn, spawnPosition, transform.rotation);
-                spawnCounter--;
+            }
+            
+            
+            spawnCounter++;
+        }
+
+    }
+
+    private void spawnSequence(int spawncounter)
+    {
+       
+            if (sequence[spawncounter % sequence.Length] == true)
+            {
+                Vector2 spawnPosition;
+                spawnPosition = transform.position;
+                GameObject newBullet = GameObject.Instantiate(somethingToSpawn, spawnPosition, transform.rotation);
             }
         
     }
+
 }

@@ -41,6 +41,7 @@ public class Health : MonoBehaviour
         {
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             animator.SetInteger("Health", 1);
+            
             gameObject.transform.position = spawnPoint.position;
         
             //Destroy(gameObject);
