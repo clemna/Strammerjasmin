@@ -10,6 +10,7 @@ public class CharacterController2D : MonoBehaviour
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;  // How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = false;                         // Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
+	[SerializeField] private LayerMask m_WhatIsWall;                            // A mask determining what is wall to the character
 	[SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_WallCheck;
 
@@ -253,7 +254,7 @@ public class CharacterController2D : MonoBehaviour
 					animator.SetBool("IsJumping", true);
 					animator.SetBool("JumpUp", true);
 					m_Rigidbody2D.velocity = new Vector2(0f, 0f);
-					m_Rigidbody2D.AddForce(new Vector2(transform.localScale.x * m_JumpForce * 4.0f, 300));
+					m_Rigidbody2D.AddForce(new Vector2(transform.localScale.x * m_JumpForce * 4.0f, 305));
 					jumpWallStartX = transform.position.x;
 					limitVelOnWallJump = true;
 					//canDoubleJump = true;
@@ -362,8 +363,8 @@ public class CharacterController2D : MonoBehaviour
     {
 		float extraHeight = .02f;
 		float extraHeight2 = .02f;
-		RaycastHit2D raycastHit = Physics2D.Raycast(m_BoxCollider2D.bounds.center, Vector2.right, m_BoxCollider2D.bounds.extents.x + extraHeight, m_WhatIsGround);
-		RaycastHit2D raycastHit2 = Physics2D.Raycast(m_BoxCollider2D.bounds.center, Vector2.left, m_BoxCollider2D.bounds.extents.x + extraHeight2, m_WhatIsGround);
+		RaycastHit2D raycastHit = Physics2D.Raycast(m_BoxCollider2D.bounds.center, Vector2.right, m_BoxCollider2D.bounds.extents.x + extraHeight, m_WhatIsWall);
+		RaycastHit2D raycastHit2 = Physics2D.Raycast(m_BoxCollider2D.bounds.center, Vector2.left, m_BoxCollider2D.bounds.extents.x + extraHeight2, m_WhatIsWall);
 		Color rayColor;
 		if (raycastHit.collider != null || raycastHit2.collider != null)
 		{
