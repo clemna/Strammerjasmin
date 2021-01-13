@@ -13,6 +13,8 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private LayerMask m_WhatIsWall;                            // A mask determining what is wall to the character
 	[SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_WallCheck;
+	private float coyoteTimer;
+	public float coyoteFrames;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	public bool m_Grounded;            // Whether or not the player is grounded.
@@ -110,6 +112,18 @@ public class CharacterController2D : MonoBehaviour
 			prevVelocityX = m_Rigidbody2D.velocity.x;*/
 		}
 
+        //Coyote Time
+        if (m_Grounded)
+        {
+			coyoteTimer = 0;
+        }
+        else
+        {
+			coyoteTimer++;
+        }
+
+		Debug.LogWarning(coyoteTimer);
+
 		if (limitVelOnWallJump)
 		{
 			if (m_Rigidbody2D.velocity.y < -0.5f)
@@ -178,17 +192,17 @@ public class CharacterController2D : MonoBehaviour
 				if (move > 0 && !m_FacingRight && !isWallSliding)
 				{
 					// ... flip the player.
-					Flip(-1);
+					Flip();
 				}
 				// Otherwise if the input is moving the player left and the player is facing right...
 				else if (move < 0 && m_FacingRight && !isWallSliding)
 				{
 					// ... flip the player.
-					Flip(1);
+					Flip();
 				}
 			}
 			// If the player should jump...
-			if (IsGrounded() && jump)
+			if ((IsGrounded() && jump) || (coyoteTimer < coyoteFrames && jump))
 			{
 				// Add a vertical force to the player.
 				animator.SetBool("IsJumping", true);
@@ -213,7 +227,7 @@ public class CharacterController2D : MonoBehaviour
 				{
 					isWallSliding = true;
 					//m_WallCheck.localPosition = new Vector3(-m_WallCheck.localPosition.x, m_WallCheck.localPosition.y, 0);
-					Flip(lastDirection);
+					Flip();
 					StartCoroutine(WaitToCheck(0.1f));
 					//canDoubleJump = true;
 					animator.SetBool("IsWallSliding", true);
@@ -224,26 +238,11 @@ public class CharacterController2D : MonoBehaviour
 				{
 					if (move * transform.localScale.x > 0.1f)
 					{
-						if (lastDirection < 0)
-						{
-							lastDirection = 1;
-						}
-						else
-						{
-							lastDirection = -1;
-						}
+						
 						StartCoroutine(WaitToEndSliding());
 					}
 					else
 					{
-						if (lastDirection < 0)
-						{
-							lastDirection = 1;
-						}
-						else
-						{
-							lastDirection = -1;
-						}
 						oldWallSlidding = true;
 						m_Rigidbody2D.velocity = new Vector2(-transform.localScale.x * 2, -2);
 					}
@@ -269,14 +268,7 @@ public class CharacterController2D : MonoBehaviour
 					isWallSliding = false;
 					animator.SetBool("IsWallSliding", false);
 					oldWallSlidding = false;
-					if (lastDirection < 0)
-					{
-						lastDirection = 1;
-					}
-					else
-					{
-						lastDirection = -1;
-					}
+					
 					//m_WallCheck.localPosition = new Vector3(Mathf.Abs(m_WallCheck.localPosition.x), m_WallCheck.localPosition.y, 0);
 					canDoubleJump = true;
 					StartCoroutine(DashCooldown());
@@ -288,13 +280,13 @@ public class CharacterController2D : MonoBehaviour
 				animator.SetBool("IsWallSliding", false);
 				oldWallSlidding = false;
 				//m_WallCheck.localPosition = new Vector3(Mathf.Abs(m_WallCheck.localPosition.x), m_WallCheck.localPosition.y, 0);
-				canDoubleJump = true;
+				canDoubleJump = false;
 			}
 		}
 	}
 
 
-	private float Flip(float lastdirection)
+	public void Flip()
 	{
 		// Switch the way the player is labelled as facing.
 		m_FacingRight = !m_FacingRight;
@@ -303,8 +295,6 @@ public class CharacterController2D : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
-		lastdirection *= -1;
-		return lastdirection;
 		
 	}
 
@@ -347,7 +337,7 @@ public class CharacterController2D : MonoBehaviour
 					rayColor = Color.red;
 				}
 				//Debug.DrawRay(m_BoxCollider2D.bounds.center, Vector2.down * (m_BoxCollider2D.bounds.extents.y + extraHeight), rayColor);
-				Debug.DrawRay(m_BoxCollider2D.bounds.center - new Vector3(m_BoxCollider2D.bounds.extents.x, m_BoxCollider2D.bounds.extents.y), Vector2.right * (m_BoxCollider2D.bounds.extents.y), rayColor);
+				//Debug.DrawRay(m_BoxCollider2D.bounds.center - new Vector3(m_BoxCollider2D.bounds.extents.x, m_BoxCollider2D.bounds.extents.y), Vector2.right * (m_BoxCollider2D.bounds.extents.y), rayColor);
 
 				//Debug.Log(raycastHit.collider);
 				return raycastHit.collider != null;
@@ -374,9 +364,9 @@ public class CharacterController2D : MonoBehaviour
 		{
 			rayColor = Color.red;
 		}
-		Debug.DrawRay(m_BoxCollider2D.bounds.center, Vector2.right * (m_BoxCollider2D.bounds.extents.x + extraHeight), rayColor);
-		Debug.DrawRay(m_BoxCollider2D.bounds.center, Vector2.left * (m_BoxCollider2D.bounds.extents.x + extraHeight2), rayColor);
-		Debug.Log(raycastHit.collider);
+		//Debug.DrawRay(m_BoxCollider2D.bounds.center, Vector2.right * (m_BoxCollider2D.bounds.extents.x + extraHeight), rayColor);
+		//Debug.DrawRay(m_BoxCollider2D.bounds.center, Vector2.left * (m_BoxCollider2D.bounds.extents.x + extraHeight2), rayColor);
+		//Debug.Log(raycastHit.collider);
 		return raycastHit.collider != null || raycastHit2.collider != null;
 	}
 
