@@ -248,6 +248,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room02
       objectReference: {fileID: 0}
+    - target: {fileID: 3513228778575554311, guid: 961033a2530bb2e459231ea830cbc5e9, type: 3}
+      propertyPath: lvlmanager
+      value: 
+      objectReference: {fileID: 2001787857}
     - target: {fileID: 9156817345407436381, guid: 961033a2530bb2e459231ea830cbc5e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.258622
@@ -595,3 +599,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5647e3978a4bb747a8be71efac38629, type: 3}
+--- !u!114 &2001787857 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5475354420876898375, guid: c5647e3978a4bb747a8be71efac38629, type: 3}
+  m_PrefabInstance: {fileID: 2001787856}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f3ad5580734d648a2eeaf81111021f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

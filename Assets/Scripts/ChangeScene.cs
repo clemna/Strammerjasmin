@@ -25,6 +25,10 @@ public class ChangeScene : MonoBehaviour
                 Debug.LogWarning("Enemy funktioniert");
                 lvlmanager.LoadCurrentLevel();
             }
+            if (this.gameObject.tag == "Restart")
+            {
+                lvlmanager.LoadFirstLevel();
+            }
         }
 
     }
