@@ -377,6 +377,7 @@ public class CharacterController2D : MonoBehaviour
 		m_Rigidbody2D.gravityScale = 0;
 		isDashing = true;
 		canDash = false;
+
 		yield return new WaitForSeconds(0.1f);
 		m_Rigidbody2D.gravityScale = gravity;
 		isDashing = false;

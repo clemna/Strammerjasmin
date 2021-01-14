@@ -12,6 +12,8 @@ public class Health : MonoBehaviour
     [SerializeField]
     Transform PlayerToSpawn;
 
+    public LevelLoader change;
+
     public Animator animator;
 
     private int currentHealth;
@@ -42,9 +44,13 @@ public class Health : MonoBehaviour
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             animator.SetInteger("Health", 1);
             
-            gameObject.transform.position = spawnPoint.position;
+            Destroy(gameObject);
+            change.LoadCurrentLevel();
+
+            //gameObject.transform.position = spawnPoint.position;
+            
         
-            //Destroy(gameObject);
+            
             //Instantiate(PlayerToSpawn, spawnPoint.position, spawnPoint.rotation);
             }
         else
