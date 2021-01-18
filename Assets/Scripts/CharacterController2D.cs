@@ -72,8 +72,13 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Update()
 	{
-		bool wasGrounded = m_Grounded;
 		m_Grounded = IsGrounded();
+		bool wasGrounded = m_Grounded;
+		
+        if (wasGrounded)
+        {
+			OnLandEvent.Invoke();
+		}
 
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
@@ -99,8 +104,12 @@ public class CharacterController2D : MonoBehaviour
 		if (!m_Grounded)
 		{
 			m_IsWall = IsWall();
-			/*OnFallEvent.Invoke();
-			Collider2D[] collidersWall = Physics2D.OverlapCircleAll(m_WallCheck.position, k_GroundedRadius, m_WhatIsGround);
+            if (m_IsWall)
+            {
+				OnFallEvent.Invoke();
+            }
+			
+			/*Collider2D[] collidersWall = Physics2D.OverlapCircleAll(m_WallCheck.position, k_GroundedRadius, m_WhatIsGround);
 			for (int i = 0; i < collidersWall.Length; i++)
 			{
 				if (collidersWall[i].gameObject != null)
@@ -205,8 +214,8 @@ public class CharacterController2D : MonoBehaviour
 			if ((IsGrounded() && jump) || (coyoteTimer < coyoteFrames && jump))
 			{
 				// Add a vertical force to the player.
-				animator.SetBool("IsJumping", true);
-				animator.SetBool("JumpUp", true);
+				//animator.SetBool("IsJumping", true);
+				animator.SetBool("Jump", true);
 				m_Grounded = false;
 				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 				canDoubleJump = true;
@@ -336,10 +345,11 @@ public class CharacterController2D : MonoBehaviour
 				{
 					rayColor = Color.red;
 				}
-				//Debug.DrawRay(m_BoxCollider2D.bounds.center, Vector2.down * (m_BoxCollider2D.bounds.extents.y + extraHeight), rayColor);
-				//Debug.DrawRay(m_BoxCollider2D.bounds.center - new Vector3(m_BoxCollider2D.bounds.extents.x, m_BoxCollider2D.bounds.extents.y), Vector2.right * (m_BoxCollider2D.bounds.extents.y), rayColor);
+			//Debug.DrawRay(m_BoxCollider2D.bounds.center, Vector2.down * (m_BoxCollider2D.bounds.extents.y + extraHeight), rayColor);
+			//Debug.DrawRay(m_BoxCollider2D.bounds.center - new Vector3(m_BoxCollider2D.bounds.extents.x, m_BoxCollider2D.bounds.extents.y), Vector2.right * (m_BoxCollider2D.bounds.extents.y), rayColor);
 
-				//Debug.Log(raycastHit.collider);
+			//Debug.Log(raycastHit.collider);
+				
 				return raycastHit.collider != null;
         }
         else

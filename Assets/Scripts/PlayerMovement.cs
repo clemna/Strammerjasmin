@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
+            //animator.SetBool("Jump", true);
         }
 
         if (Input.GetButtonDown("Fire1"))
@@ -51,6 +52,12 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+
+    public void OnLanding()
+    {
+        animator.SetBool("Jump", false);
+        animator.SetBool("IsDoubleJumping", false);
+    }
 
     void FixedUpdate()
     {
