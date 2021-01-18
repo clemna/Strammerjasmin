@@ -521,6 +521,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2461298617926464880, guid: fbac4387c02d30d419779ab918254a31, type: 3}
+      propertyPath: m_TagString
+      value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 2461298618050226213, guid: fbac4387c02d30d419779ab918254a31, type: 3}
+      propertyPath: buttons.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2461298618050226213, guid: fbac4387c02d30d419779ab918254a31, type: 3}
+      propertyPath: buttons.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2461298618050226213, guid: fbac4387c02d30d419779ab918254a31, type: 3}
+      propertyPath: buttons.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2461298618050226214, guid: fbac4387c02d30d419779ab918254a31, type: 3}
       propertyPath: m_Name
       value: Pause

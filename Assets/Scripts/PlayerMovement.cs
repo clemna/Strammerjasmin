@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     public CharacterController2D controller;
 
+    public Animator animator;
+
     public float runSpeed = 40f;
 
     private float lastDirection = 0;
@@ -26,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        animator.SetFloat("Walk", Mathf.Abs(horizontalMove));
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
             lastDirection = 1;
