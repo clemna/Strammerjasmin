@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,6 +12,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
 
     static PauseMenu instance;
+
+    private Button resumeButton;
+    private Button menuButton;
+    private Button quitButton;
+    public Button[] buttons = new Button[3];
 
     private void Start()
     {
@@ -20,6 +27,21 @@ public class PauseMenu : MonoBehaviour
         }
         instance = this;
         GameObject.DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void Awake()
+    {
+        buttons = GetComponentsInChildren<Button>();
+        foreach (var item in buttons)
+        {
+            if (item.gameObject.tag == "Resume")
+            {
+                resumeButton = item;
+                resumeButton.onClick.AddListener(OnClickEvent);
+            }
+        }
+        resumeButton = GetComponentInChildren<Button>();
+
     }
 
     // Update is called once per frame
@@ -36,6 +58,15 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }    
+    }
+
+
+    private void OnClickEvent()
+    {
+        if (resumeButton != null)
+        {
+            Resume();
+        }
     }
 
     public void Resume()
