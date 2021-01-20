@@ -23,6 +23,7 @@ public class EnemyControler : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        FindObjectOfType<AudioManager>().Play("Hit Fireball");
         Destroy(gameObject);
 
     }

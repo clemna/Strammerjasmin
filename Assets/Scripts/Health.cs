@@ -55,6 +55,7 @@ public class Health : MonoBehaviour
             }
         else
         {
+            //FindObjectOfType<AudioManager>().Play("Hit Fireball");
             Destroy(gameObject);
         }
         

@@ -15,6 +15,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_WallCheck;
 	private float coyoteTimer;
 	public float coyoteFrames;
+	public AudioManager audiomanager;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	public bool m_Grounded;            // Whether or not the player is grounded.
@@ -175,10 +176,12 @@ public class CharacterController2D : MonoBehaviour
 			{
                 if (lastDirection > 0)
                 {
+					//audiomanager.Play("Dash");
 					m_Rigidbody2D.velocity = Vector2.right * m_DashForce;
                 }
                 if (lastDirection < 0 )
                 {
+					//audiomanager.Play("Dash");
 					m_Rigidbody2D.velocity = Vector2.left * m_DashForce;
                 }
 				//m_Rigidbody2D.velocity = new Vector2(transform.localScale.x * m_DashForce, 0);
@@ -196,6 +199,7 @@ public class CharacterController2D : MonoBehaviour
 				Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 				// And then smoothing it out and applying it to the character
 				m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref velocity, m_MovementSmoothing);
+                
 
 				// If the input is moving the player right and the player is facing left...
 				if (move > 0 && !m_FacingRight && !isWallSliding)
@@ -219,6 +223,7 @@ public class CharacterController2D : MonoBehaviour
 				m_Grounded = false;
 				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 				canDoubleJump = true;
+				audiomanager.Play("Jump");
 				particleJumpDown.Play();
 				particleJumpUp.Play();
 			}
@@ -227,6 +232,7 @@ public class CharacterController2D : MonoBehaviour
 				canDoubleJump = false;
 				m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
 				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce / 1.2f));
+				audiomanager.Play("Double Jump");
 				animator.SetBool("IsDoubleJumping", true);
 			}
 
@@ -235,6 +241,7 @@ public class CharacterController2D : MonoBehaviour
 				if (!oldWallSlidding && m_Rigidbody2D.velocity.y < 0 || isDashing)
 				{
 					isWallSliding = true;
+					audiomanager.Play("Wall Slide");
 					//m_WallCheck.localPosition = new Vector3(-m_WallCheck.localPosition.x, m_WallCheck.localPosition.y, 0);
 					Flip();
 					StartCoroutine(WaitToCheck(0.1f));

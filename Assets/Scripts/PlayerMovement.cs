@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
+    public AudioManager audiomanager;
+
     public float runSpeed = 40f;
 
     private float lastDirection = 0;
@@ -28,6 +30,10 @@ public class PlayerMovement : MonoBehaviour
     {
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        if (Mathf.Abs(horizontalMove) > 0)
+        {
+            audiomanager.Play("Steps");
+        }
         animator.SetFloat("Walk", Mathf.Abs(horizontalMove));
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
@@ -42,11 +48,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
+            //audiomanager.Play("Jump");
             //animator.SetBool("Jump", true);
         }
 
         if (Input.GetButtonDown("Fire1"))
         {
+            audiomanager.Play("Dash");
             dash = true;
         }
 
