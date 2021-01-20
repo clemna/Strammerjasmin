@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        if (Mathf.Abs(horizontalMove) > 0)
+        if (Mathf.Abs(horizontalMove) > 0 && audiomanager != null)
         {
             audiomanager.Play("Steps");
         }
@@ -54,7 +54,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            audiomanager.Play("Dash");
+            if (audiomanager != null)
+            {
+                audiomanager.Play("Dash");
+            }
+            
             dash = true;
         }
 

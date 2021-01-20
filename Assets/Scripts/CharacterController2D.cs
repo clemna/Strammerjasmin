@@ -223,7 +223,11 @@ public class CharacterController2D : MonoBehaviour
 				m_Grounded = false;
 				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 				canDoubleJump = true;
-				audiomanager.Play("Jump");
+                if (audiomanager != null)
+                {
+					audiomanager.Play("Jump");
+                }
+				
 				particleJumpDown.Play();
 				particleJumpUp.Play();
 			}
@@ -232,7 +236,11 @@ public class CharacterController2D : MonoBehaviour
 				canDoubleJump = false;
 				m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
 				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce / 1.2f));
-				audiomanager.Play("Double Jump");
+                if (audiomanager != null)
+                {
+					audiomanager.Play("Double Jump");
+                }
+				
 				animator.SetBool("IsDoubleJumping", true);
 			}
 
@@ -241,7 +249,10 @@ public class CharacterController2D : MonoBehaviour
 				if (!oldWallSlidding && m_Rigidbody2D.velocity.y < 0 || isDashing)
 				{
 					isWallSliding = true;
-					audiomanager.Play("Wall Slide");
+                    if (audiomanager != null)
+                    {
+						audiomanager.Play("Wall Slide");
+                    }
 					//m_WallCheck.localPosition = new Vector3(-m_WallCheck.localPosition.x, m_WallCheck.localPosition.y, 0);
 					Flip();
 					StartCoroutine(WaitToCheck(0.1f));

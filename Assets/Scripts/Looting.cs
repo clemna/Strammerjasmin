@@ -27,7 +27,11 @@ public class Looting : MonoBehaviour
         {
             case "Soul":
                 CollectSoul();
-                FindObjectOfType<AudioManager>().Play("Collect Soul");
+                if (FindObjectOfType<AudioManager>().isActiveAndEnabled)
+                {
+                    FindObjectOfType<AudioManager>().Play("Collect Soul");
+                }
+                
                 break;
             default:
                 break;
