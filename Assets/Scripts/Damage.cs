@@ -26,7 +26,10 @@ public class Damage : MonoBehaviour
         {
             health.TakeDamage();
         }
-
+        if (other.gameObject.tag == "Soul")
+        {
+            return;
+        }
         float offset = rigid.velocity.magnitude;
         GameObject.Instantiate(hitEffect, transform.position, transform.rotation * Quaternion.Euler(Vector3.up * 180f));
 

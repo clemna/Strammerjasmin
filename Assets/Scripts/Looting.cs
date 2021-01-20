@@ -6,6 +6,8 @@ using UnityEngine;
 public class Looting : MonoBehaviour
 {
 
+
+    public AudioManager audiomanager;
     [SerializeField]
     private string[] lootTags = new string[0];
 
@@ -27,7 +29,7 @@ public class Looting : MonoBehaviour
         {
             case "Soul":
                 CollectSoul();
-                if (FindObjectOfType<AudioManager>().isActiveAndEnabled)
+                if (audiomanager != null)
                 {
                     FindObjectOfType<AudioManager>().Play("Collect Soul");
                 }

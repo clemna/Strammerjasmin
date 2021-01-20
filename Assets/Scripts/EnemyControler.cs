@@ -7,6 +7,8 @@ public class EnemyControler : MonoBehaviour
     public float speed;
     public bool moveRight;
 
+    public AudioManager audiomanager;
+
 
     private void Update()
     {
@@ -23,11 +25,14 @@ public class EnemyControler : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (FindObjectOfType<AudioManager>().isActiveAndEnabled)
+        if (audiomanager != null)
         {
             FindObjectOfType<AudioManager>().Play("Hit Fireball");
         }
-        
+        if (other.gameObject.tag == "Soul")
+        {
+            return;
+        }
         Destroy(gameObject);
 
     }
