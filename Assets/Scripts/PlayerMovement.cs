@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        if (Mathf.Abs(horizontalMove) > 0 && audiomanager != null)
+        if (Mathf.Abs(horizontalMove) > 0 && audiomanager)
         {
             audiomanager.Play("Steps");
         }
