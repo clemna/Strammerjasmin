@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private GameObject pauseUI = null;
+    static UIManager instance;
 
     public int souls = 0;
     private Health playerHealth;
@@ -27,6 +29,8 @@ public class UIManager : MonoBehaviour
 
     private float lastPauseUIToggle;
 
+
+
     private void Awake()
     {
         manager = this;
@@ -35,8 +39,24 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+if (instance != null)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
+            instance = this;
+            GameObject.DontDestroyOnLoad(this.gameObject);
+        
         playerHealth = PlayerMovement.player.GetComponent<Health>();
         iconInstances = new List<GameObject>();
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+        
     }
 
     // Update is called once per frame
@@ -68,6 +88,7 @@ public class UIManager : MonoBehaviour
 
     private void LateUpdate()
     {
+        
         scoreText.text = souls.ToString();
     }
 
@@ -78,5 +99,12 @@ public class UIManager : MonoBehaviour
             pauseUI.SetActive(!pauseUI.activeSelf);
             lastPauseUIToggle = Time.time;
         }
+    }
+
+    IEnumerator ShowUI()
+    {
+        this.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3);
+        this.gameObject.SetActive(false);
     }
 }
