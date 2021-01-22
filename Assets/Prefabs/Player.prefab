@@ -695,6 +695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_JumpForce: 700
   m_MovementSmoothing: 0.05
+  m_WallJumpHeight: 750
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
@@ -744,6 +745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a660038e7e40184cb71d1cc86611702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audiomanager: {fileID: 0}
   lootTags:
   - Soul
 --- !u!114 &1437646554071294984

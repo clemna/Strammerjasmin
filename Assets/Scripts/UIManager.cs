@@ -86,9 +86,9 @@ if (instance != null)
         }
     }*/
 
+
     private void LateUpdate()
     {
-        
         scoreText.text = souls.ToString();
     }
 
