@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
 
     private float lastDirection = 0;
 
+    public float jumpTimeCounter;
+    public float jumpTime;
+
     float horizontalMove = 0f;
     bool jump = false;
     bool dash = false;
@@ -52,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
             //animator.SetBool("Jump", true);
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Dash"))
         {
             if (audiomanager != null)
             {
