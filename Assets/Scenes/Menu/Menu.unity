@@ -382,9 +382,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1461790867631719530, guid: 069d40a29c3514b48a4b355bea1bf031, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881631485070728856, guid: 069d40a29c3514b48a4b355bea1bf031, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 5800406822159681989, guid: 069d40a29c3514b48a4b355bea1bf031, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800406822159681990, guid: 069d40a29c3514b48a4b355bea1bf031, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800406822159681991, guid: 069d40a29c3514b48a4b355bea1bf031, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5800406822159681993, guid: 069d40a29c3514b48a4b355bea1bf031, type: 3}
       propertyPath: m_LocalPosition.x
@@ -470,6 +486,18 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5800406822159681993, guid: 069d40a29c3514b48a4b355bea1bf031, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800406822159681993, guid: 069d40a29c3514b48a4b355bea1bf031, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800406822159681993, guid: 069d40a29c3514b48a4b355bea1bf031, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5823200621435317441, guid: 069d40a29c3514b48a4b355bea1bf031, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -498,5 +526,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7395336863122177192, guid: 069d40a29c3514b48a4b355bea1bf031, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 069d40a29c3514b48a4b355bea1bf031, type: 3}
