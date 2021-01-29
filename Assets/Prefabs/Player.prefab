@@ -563,6 +563,7 @@ GameObject:
   - component: {fileID: 1437646554071295477}
   - component: {fileID: 1437646554071294987}
   - component: {fileID: 1437646554071294984}
+  - component: {fileID: 5552891029693948439}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -679,8 +680,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1437646554071295477}
   animator: {fileID: 1437646554071294985}
-  audiomanager: {fileID: 0}
   runSpeed: 40
+  jumpheld: 0
 --- !u!114 &1437646554071295477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -765,6 +766,20 @@ MonoBehaviour:
   PlayerToSpawn: {fileID: 8808243064788602589}
   change: {fileID: 0}
   animator: {fileID: 1437646554071294985}
+--- !u!114 &5552891029693948439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3112823650534820032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4baa26acb8afeb349b236020b4e76396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 5
 --- !u!1 &3759248322891037739
 GameObject:
   m_ObjectHideFlags: 0

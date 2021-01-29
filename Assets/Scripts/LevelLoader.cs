@@ -9,6 +9,13 @@ public class LevelLoader : MonoBehaviour
     public Animator transition;
     public float transitionTime = 1;
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            SkipLevel();
+        }
+    }
 
     public void LoadNextLevel()
     {
@@ -32,6 +39,11 @@ public class LevelLoader : MonoBehaviour
     public void LoadFirstLevel()
     {
         StartCoroutine(LoadLevel(0));
+    }
+
+    public void SkipLevel()
+    {
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     IEnumerator LoadLevel(int levelIndex)
