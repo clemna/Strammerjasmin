@@ -12,6 +12,7 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        UIManager.manager.ResetSceneSouls();
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
         
     }
@@ -24,6 +25,7 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadCurrentLevel()
     {
+        UIManager.manager.ResetScore();
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
     }
 
