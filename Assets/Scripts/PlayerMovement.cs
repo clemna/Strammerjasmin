@@ -10,18 +10,19 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
-    public AudioManager audiomanager;
+    //public AudioManager audiomanager;
 
     public float runSpeed = 40f;
 
     private float lastDirection = 0;
 
-    public float jumpTimeCounter;
-    public float jumpTime;
+    //public float jumpTimeCounter;
+    //public float jumpTime;
 
     float horizontalMove = 0f;
     bool jump = false;
     bool dash = false;
+    public bool jumpheld = false;
 
     private void Awake()
     {
@@ -33,9 +34,9 @@ public class PlayerMovement : MonoBehaviour
     {
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        if (Mathf.Abs(horizontalMove) > 0 && audiomanager != null)
+        if (Mathf.Abs(horizontalMove) > 0 && AudioManager.instance != null)
         {
-            audiomanager.Play("Steps");
+            AudioManager.instance.Play("Steps");
         }
         animator.SetFloat("Walk", Mathf.Abs(horizontalMove));
         if (Input.GetAxisRaw("Horizontal") > 0)
@@ -51,15 +52,41 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
+            jumpheld = true;
             //audiomanager.Play("Jump");
             //animator.SetBool("Jump", true);
+        }
+        else if (Input.GetButtonUp("Jump"))
+        {
+            jumpheld = false;
+        }
+
+        
+
+        /*if (Input.GetButton("Jump") && jump == true)
+        {
+            if (jumpTimeCounter > 0)
+            {
+                jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                jump = false;
+            }
+        }*/
+        
+
+        if (Input.GetButtonUp("Jump"))
+        {
+            jump = false;
         }
 
         if (Input.GetButtonDown("Dash"))
         {
-            if (audiomanager != null)
+            if (AudioManager.instance != null)
             {
-                audiomanager.Play("Dash");
+                AudioManager.instance.Play("Dash");
+                //audiomanager.Play("Dash");
             }
             
             dash = true;
@@ -76,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash, lastDirection);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash, lastDirection, jumpheld);
         jump = false;
         dash = false;
     }

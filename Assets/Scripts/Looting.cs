@@ -45,7 +45,8 @@ public class Looting : MonoBehaviour
     {
         if (UIManager.manager != null)
         {
-            UIManager.manager.souls++;
+            //UIManager.manager.souls++;
+            UIManager.manager.AddScore();
             
         }
     }

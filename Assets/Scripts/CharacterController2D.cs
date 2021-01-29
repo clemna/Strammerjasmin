@@ -163,7 +163,7 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool jump, bool dash, float lastDirection)
+	public void Move(float move, bool jump, bool dash, float lastDirection, bool jumpheld)
 	{
 		if (canMove)
 		{
@@ -224,9 +224,9 @@ public class CharacterController2D : MonoBehaviour
 				m_Grounded = false;
 				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 				canDoubleJump = true;
-                if (audiomanager != null)
+                if (AudioManager.instance != null)
                 {
-					audiomanager.Play("Jump");
+					AudioManager.instance.Play("Jump");
                 }
 				
 				particleJumpDown.Play();
@@ -237,9 +237,14 @@ public class CharacterController2D : MonoBehaviour
 				canDoubleJump = false;
 				m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
 				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce / 1.2f));
-                if (audiomanager != null)
+				/*if (!jumpheld && Vector2.Dot(m_Rigidbody2D.velocity, Vector2.up) > 0)
                 {
-					audiomanager.Play("Double Jump");
+					m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * 2));
+                }*/
+                
+                if (AudioManager.instance != null)
+                {
+					AudioManager.instance.Play("Double Jump");
                 }
 				
 				animator.SetBool("IsDoubleJumping", true);
@@ -368,7 +373,6 @@ public class CharacterController2D : MonoBehaviour
 			//Debug.DrawRay(m_BoxCollider2D.bounds.center - new Vector3(m_BoxCollider2D.bounds.extents.x, m_BoxCollider2D.bounds.extents.y), Vector2.right * (m_BoxCollider2D.bounds.extents.y), rayColor);
 
 			//Debug.Log(raycastHit.collider);
-				
 				return raycastHit.collider != null;
         }
         else

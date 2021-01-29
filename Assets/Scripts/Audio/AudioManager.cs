@@ -16,13 +16,14 @@ public class AudioManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
             Destroy(gameObject);
             return;
         }
-        DontDestroyOnLoad(this.gameObject);
+        
 
         foreach (Sound s in sounds)
         {
@@ -32,6 +33,7 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = s.mixerGroup;
 
         }
     }

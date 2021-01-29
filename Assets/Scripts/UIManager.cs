@@ -13,7 +13,8 @@ public class UIManager : MonoBehaviour
     private GameObject pauseUI = null;
     static UIManager instance;
 
-    public int souls = 0;
+    static public int souls = 0;
+    static private int sceneSouls = 0;
     private Health playerHealth;
 
     [SerializeField]
@@ -33,7 +34,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        manager = this;
+        //manager = this;
     }
 
     // Start is called before the first frame update
@@ -41,16 +42,22 @@ public class UIManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-if (instance != null)
+        if (instance != null)
             {
                 Destroy(this.gameObject);
                 return;
             }
-            instance = this;
-            GameObject.DontDestroyOnLoad(this.gameObject);
+            else
+            {
+                instance = this;
+                manager = this;
+                GameObject.DontDestroyOnLoad(this.gameObject);
+            }
+            //instance = this;
+            //GameObject.DontDestroyOnLoad(this.gameObject);
         
-        playerHealth = PlayerMovement.player.GetComponent<Health>();
-        iconInstances = new List<GameObject>();
+        //playerHealth = PlayerMovement.player.GetComponent<Health>();
+        //iconInstances = new List<GameObject>();
         }
         else
         {
@@ -101,10 +108,29 @@ if (instance != null)
         }
     }
 
+
+    public void AddScore()
+    {
+        souls++;
+        sceneSouls++;
+    }
+
+    public void ResetSceneSouls()
+    {
+        sceneSouls = 0;
+    }
+    public void ResetScore()
+    {
+        souls = souls - sceneSouls;
+        sceneSouls = 0;
+    }
+
     IEnumerator ShowUI()
     {
         this.gameObject.SetActive(true);
         yield return new WaitForSeconds(3);
         this.gameObject.SetActive(false);
     }
+
+
 }
