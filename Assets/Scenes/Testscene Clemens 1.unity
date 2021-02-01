@@ -247,7 +247,7 @@ Transform:
   m_Children:
   - {fileID: 1475017439}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &73135573
 BoxCollider2D:
@@ -464,7 +464,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &237429874
 GameObject:
@@ -690,7 +690,7 @@ Transform:
   m_LocalScale: {x: 6.9497, y: 0.37179, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &336236326
 PrefabInstance:
@@ -921,7 +921,7 @@ Transform:
   m_LocalScale: {x: 6.9497, y: 0.37179, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &435753811
 PrefabInstance:
@@ -990,6 +990,10 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 5552891029693948439, guid: d4ff5d37044263648943132d5487df78, type: 3}
+      propertyPath: fallMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5769209370044322610, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
@@ -1012,11 +1016,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8808243064788602589, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -60.24
+      value: -59.89
       objectReference: {fileID: 0}
     - target: {fileID: 8808243064788602589, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.38
+      value: 17.91
       objectReference: {fileID: 0}
     - target: {fileID: 8808243064788602589, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1825,7 +1829,7 @@ Transform:
   m_Children:
   - {fileID: 237429875}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1421468173
 MonoBehaviour:
@@ -2419,7 +2423,7 @@ Transform:
   m_LocalScale: {x: 6.9497, y: 0.37179, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1694074603
 BoxCollider2D:
@@ -2966,7 +2970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1370641065250658393, guid: c27c2eefe2bb57d4fa363efb0e91e28b, type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1370641065250658393, guid: c27c2eefe2bb57d4fa363efb0e91e28b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3116,7 +3120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 296414750597470362, guid: d4bbb60d31cf40f418c331ef99062ffe, type: 3}
       propertyPath: m_RootOrder
-      value: 31
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 296414750597470362, guid: d4bbb60d31cf40f418c331ef99062ffe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3295,7 +3299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5401411439066463963, guid: e2b580928c0ceaf4fba69f46f3b784d6, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 5401411439066463963, guid: e2b580928c0ceaf4fba69f46f3b784d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3473,7 +3477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9046722108767242783, guid: 8a7bb0906587d7e4cbbded7569ef44f3, type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 9046722108767242783, guid: 8a7bb0906587d7e4cbbded7569ef44f3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
