@@ -17,6 +17,7 @@ public class CharacterController2D : MonoBehaviour
 	private float coyoteTimer;
 	public float coyoteFrames;
 	public AudioManager audiomanager;
+	public float WallJumpTime;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	public bool m_Grounded;            // Whether or not the player is grounded.
@@ -287,6 +288,7 @@ public class CharacterController2D : MonoBehaviour
 					animator.SetBool("JumpUp", true);
 					m_Rigidbody2D.velocity = new Vector2(0f, 0f);
 					m_Rigidbody2D.AddForce(new Vector2(transform.localScale.x * m_JumpForce * 4.0f, m_WallJumpHeight));
+					StartCoroutine(WaitToMove(WallJumpTime));
 					jumpWallStartX = transform.position.x;
 					limitVelOnWallJump = true;
 					//canDoubleJump = true;
@@ -294,7 +296,7 @@ public class CharacterController2D : MonoBehaviour
 					animator.SetBool("IsWallSliding", false);
 					oldWallSlidding = false;
 					//dm_WallCheck.localPosition = new Vector3(Mathf.Abs(m_WallCheck.localPosition.x), m_WallCheck.localPosition.y, 0);
-					canMove = false;
+					//canMove = false;
 				}
 				else if (dash && canDash)
 				{
