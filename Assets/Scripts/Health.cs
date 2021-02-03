@@ -12,6 +12,8 @@ public class Health : MonoBehaviour
     [SerializeField]
     Transform PlayerToSpawn;
 
+    public GameObject Eyes;
+
     public LevelLoader change;
 
     public Animator animator;
@@ -75,7 +77,7 @@ public class Health : MonoBehaviour
 
     IEnumerator DeathAnimation(Rigidbody2D rb)
     {
-        
+        Eyes.SetActive(false);
         animator.SetInteger("Health", 0);
         
         yield return new WaitForSeconds(1f);
