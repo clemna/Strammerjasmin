@@ -16,8 +16,6 @@ public class Spawner : MonoBehaviour
 
     private float lastSomethingSpawned;
 
-    public AudioManager audiomanager;
-
     void Update()
     {
         if (Time.time > lastSomethingSpawned + spawnCooldown)
@@ -35,9 +33,9 @@ public class Spawner : MonoBehaviour
             else
             {
                 GameObject newBullet = GameObject.Instantiate(somethingToSpawn, spawnPosition, transform.rotation);
-                if (audiomanager != null)
+                if (AudioManager.instance != null)
                 {
-                    FindObjectOfType<AudioManager>().Play("Spawn Fireball");
+                    AudioManager.instance.Play("Spawn Fireball");
                 }
                 //FindObjectOfType<AudioManager>().Play("Spawn Fireball");
             }
@@ -56,9 +54,9 @@ public class Spawner : MonoBehaviour
                 Vector2 spawnPosition;
                 spawnPosition = transform.position;
                 GameObject newBullet = GameObject.Instantiate(somethingToSpawn, spawnPosition, transform.rotation);
-            if (audiomanager != null)
+            if (AudioManager.instance != null)
             {
-                FindObjectOfType<AudioManager>().Play("Spawn Fireball");
+                AudioManager.instance.Play("Spawn Fireball");
             }
 
         }

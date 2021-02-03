@@ -16,7 +16,6 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_WallCheck;
 	private float coyoteTimer;
 	public float coyoteFrames;
-	public AudioManager audiomanager;
 	public float WallJumpTime;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -134,7 +133,7 @@ public class CharacterController2D : MonoBehaviour
 			coyoteTimer++;
         }
 
-		Debug.LogWarning(coyoteTimer);
+		//Debug.LogWarning(coyoteTimer);
 
 		if (limitVelOnWallJump)
 		{
@@ -164,7 +163,7 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool jump, bool dash, float lastDirection, bool jumpheld)
+	public void Move(float move, bool jump, bool dash, float lastDirection)
 	{
 		if (canMove)
 		{
@@ -195,13 +194,17 @@ public class CharacterController2D : MonoBehaviour
 			//only control the player if grounded or airControl is turned on
 			else if (m_Grounded || m_AirControl)
 			{
+                
 				if (m_Rigidbody2D.velocity.y < -limitFallSpeed)
 					m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, -limitFallSpeed);
 				// Move the character by finding the target velocity
 				Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 				// And then smoothing it out and applying it to the character
 				m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref velocity, m_MovementSmoothing);
-                
+                /*if (IsGrounded() && m_Rigidbody2D.velocity.x != 0)
+                {
+					AudioManager.instance.Play("Steps");
+				}*/
 
 				// If the input is moving the player right and the player is facing left...
 				if (move > 0 && !m_FacingRight && !isWallSliding)
@@ -256,10 +259,10 @@ public class CharacterController2D : MonoBehaviour
 				if (!oldWallSlidding && m_Rigidbody2D.velocity.y < 0 || isDashing)
 				{
 					isWallSliding = true;
-                    if (audiomanager != null)
+                    if (AudioManager.instance != null)
                     {
-						audiomanager.Play("Wall Slide");
-                    }
+						AudioManager.instance.Play("Wall Slide");
+					}
 					//m_WallCheck.localPosition = new Vector3(-m_WallCheck.localPosition.x, m_WallCheck.localPosition.y, 0);
 					Flip();
 					StartCoroutine(WaitToCheck(0.1f));
@@ -284,11 +287,10 @@ public class CharacterController2D : MonoBehaviour
 
 				if (jump && isWallSliding)
 				{
-					animator.SetBool("IsJumping", true);
-					animator.SetBool("JumpUp", true);
+					animator.SetBool("Jump", true);
 					m_Rigidbody2D.velocity = new Vector2(0f, 0f);
 					m_Rigidbody2D.AddForce(new Vector2(transform.localScale.x * m_JumpForce * 4.0f, m_WallJumpHeight));
-					StartCoroutine(WaitToMove(WallJumpTime));
+					//StartCoroutine(WaitToMove(WallJumpTime));
 					jumpWallStartX = transform.position.x;
 					limitVelOnWallJump = true;
 					//canDoubleJump = true;

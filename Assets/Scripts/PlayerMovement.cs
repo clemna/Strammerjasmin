@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0f;
     bool jump = false;
     bool dash = false;
-    public bool jumpheld = false;
 
     private void Awake()
     {
@@ -34,10 +33,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        if (Mathf.Abs(horizontalMove) > 0 && AudioManager.instance != null)
-        {
-            AudioManager.instance.Play("Steps");
-        }
+        
         animator.SetFloat("Walk", Mathf.Abs(horizontalMove));
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
@@ -52,28 +48,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
-            jumpheld = true;
+            
             //audiomanager.Play("Jump");
             //animator.SetBool("Jump", true);
         }
-        else if (Input.GetButtonUp("Jump"))
-        {
-            jumpheld = false;
-        }
-
         
-
-        /*if (Input.GetButton("Jump") && jump == true)
-        {
-            if (jumpTimeCounter > 0)
-            {
-                jumpTimeCounter -= Time.deltaTime;
-            }
-            else
-            {
-                jump = false;
-            }
-        }*/
         
 
         if (Input.GetButtonUp("Jump"))
@@ -91,7 +70,10 @@ public class PlayerMovement : MonoBehaviour
             
             dash = true;
         }
-
+        if (Mathf.Abs(horizontalMove) > 0 && AudioManager.instance != null && jump == false && dash == false)
+        {
+            AudioManager.instance.Play("Steps");
+        }
     }
 
 
@@ -103,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash, lastDirection, jumpheld);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash, lastDirection);
         jump = false;
         dash = false;
     }

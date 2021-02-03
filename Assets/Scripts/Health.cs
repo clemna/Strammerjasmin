@@ -31,7 +31,7 @@ public class Health : MonoBehaviour
         //option for Loot can be added here
         if (currentHealth <= 0)
         {
-            animator.SetInteger("Health", 0);
+            //animator.SetInteger("Health", 0);
             Die();
         }
     }
@@ -41,11 +41,12 @@ public class Health : MonoBehaviour
         currentHealth = 0;
         if (gameObject.transform.CompareTag("Player"))
         {
+
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            animator.SetInteger("Health", 1);
-            
-            Destroy(gameObject);
-            change.LoadCurrentLevel();
+            //animator.SetInteger("Health", 1);
+            StartCoroutine(DeathAnimation());
+            /*Destroy(gameObject);
+            change.LoadCurrentLevel();*/
 
             //gameObject.transform.position = spawnPoint.position;
             
@@ -56,6 +57,7 @@ public class Health : MonoBehaviour
         else
         {
             //FindObjectOfType<AudioManager>().Play("Hit Fireball");
+            AudioManager.instance.Play("Hit Fireball");
             Destroy(gameObject);
         }
         
@@ -65,5 +67,14 @@ public class Health : MonoBehaviour
     public int GetCurrent()
     {
         return currentHealth;
+    }
+
+    IEnumerator DeathAnimation()
+    {
+        animator.SetInteger("Health", 0);
+        yield return new WaitForSeconds(1f);
+        animator.SetInteger("Health", 1);
+        Destroy(gameObject);
+        change.LoadCurrentLevel();
     }
 }

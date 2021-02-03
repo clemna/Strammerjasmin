@@ -20,14 +20,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Text scoreText = null;
 
-    [SerializeField]
-    private GameObject iconPrefab = null;
-    [SerializeField]
-    private Transform iconHolder = null;
-    [SerializeField]
-    private Vector3 iconOffset = Vector3.zero;
-    private List<GameObject> iconInstances;
-
     private float lastPauseUIToggle;
 
 
