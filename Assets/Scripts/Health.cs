@@ -43,8 +43,12 @@ public class Health : MonoBehaviour
         {
 
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = 0;
+            rb.isKinematic = true;
+            
             //animator.SetInteger("Health", 1);
-            StartCoroutine(DeathAnimation());
+            StartCoroutine(DeathAnimation(rb));
             /*Destroy(gameObject);
             change.LoadCurrentLevel();*/
 
@@ -69,9 +73,11 @@ public class Health : MonoBehaviour
         return currentHealth;
     }
 
-    IEnumerator DeathAnimation()
+    IEnumerator DeathAnimation(Rigidbody2D rb)
     {
+        
         animator.SetInteger("Health", 0);
+        
         yield return new WaitForSeconds(1f);
         animator.SetInteger("Health", 1);
         Destroy(gameObject);

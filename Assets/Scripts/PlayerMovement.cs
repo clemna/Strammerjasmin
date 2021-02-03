@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
+    public Health hp;
+
     //public AudioManager audiomanager;
 
     public float runSpeed = 40f;
@@ -31,48 +33,50 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        
-        animator.SetFloat("Walk", Mathf.Abs(horizontalMove));
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        if (hp.GetCurrent() >= 1)
         {
-            lastDirection = 1;
-        }
-        else if (Input.GetAxisRaw("Horizontal") < 0)
-        {
-            lastDirection = -1;
-        }
+            horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            jump = true;
-            
-            //audiomanager.Play("Jump");
-            //animator.SetBool("Jump", true);
-        }
-        
-        
-
-        if (Input.GetButtonUp("Jump"))
-        {
-            jump = false;
-        }
-
-        if (Input.GetButtonDown("Dash"))
-        {
-            if (AudioManager.instance != null)
+            animator.SetFloat("Walk", Mathf.Abs(horizontalMove));
+            if (Input.GetAxisRaw("Horizontal") > 0)
             {
-                AudioManager.instance.Play("Dash");
-                //audiomanager.Play("Dash");
+                lastDirection = 1;
             }
-            
-            dash = true;
-        }
-        if (Mathf.Abs(horizontalMove) > 0 && AudioManager.instance != null && jump == false && dash == false)
-        {
-            AudioManager.instance.Play("Steps");
+            else if (Input.GetAxisRaw("Horizontal") < 0)
+            {
+                lastDirection = -1;
+            }
+
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                jump = true;
+
+                //audiomanager.Play("Jump");
+                //animator.SetBool("Jump", true);
+            }
+
+
+
+            if (Input.GetButtonUp("Jump"))
+            {
+                jump = false;
+            }
+
+            if (Input.GetButtonDown("Dash"))
+            {
+                if (AudioManager.instance != null)
+                {
+                    AudioManager.instance.Play("Dash");
+                    //audiomanager.Play("Dash");
+                }
+
+                dash = true;
+            }
+            if (Mathf.Abs(horizontalMove) > 0 && AudioManager.instance != null && jump == false && dash == false)
+            {
+                AudioManager.instance.Play("Steps");
+            }
         }
     }
 
