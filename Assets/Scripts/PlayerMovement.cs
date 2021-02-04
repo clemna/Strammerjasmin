@@ -78,6 +78,10 @@ public class PlayerMovement : MonoBehaviour
                 AudioManager.instance.Play("Steps");
             }
         }
+        else
+        {
+            horizontalMove = 0;
+        }
     }
 
 

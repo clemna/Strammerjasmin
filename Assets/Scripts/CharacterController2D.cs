@@ -178,10 +178,12 @@ public class CharacterController2D : MonoBehaviour
                 if (lastDirection > 0)
                 {
 					//audiomanager.Play("Dash");
+					
 					m_Rigidbody2D.velocity = Vector2.right * m_DashForce;
                 }
                 if (lastDirection < 0 )
                 {
+					
 					//audiomanager.Play("Dash");
 					m_Rigidbody2D.velocity = Vector2.left * m_DashForce;
                 }
@@ -265,6 +267,7 @@ public class CharacterController2D : MonoBehaviour
 					}
 					//m_WallCheck.localPosition = new Vector3(-m_WallCheck.localPosition.x, m_WallCheck.localPosition.y, 0);
 					Flip();
+					animator.SetBool("Dash", false);
 					StartCoroutine(WaitToCheck(0.1f));
 					//canDoubleJump = true;
 					animator.SetBool("IsWallSliding", true);
@@ -273,6 +276,7 @@ public class CharacterController2D : MonoBehaviour
 
 				if (isWallSliding)
 				{
+					animator.SetBool("Dash", false);
 					if (move * transform.localScale.x > 0.1f)
 					{
 						
@@ -409,7 +413,7 @@ public class CharacterController2D : MonoBehaviour
 
 	IEnumerator DashCooldown()
 	{
-		animator.SetBool("IsDashing", true);
+		animator.SetBool("Dash", true);
 		float gravity = m_Rigidbody2D.gravityScale;
 		m_Rigidbody2D.gravityScale = 0;
 		isDashing = true;
@@ -418,6 +422,7 @@ public class CharacterController2D : MonoBehaviour
 		yield return new WaitForSeconds(0.1f);
 		m_Rigidbody2D.gravityScale = gravity;
 		isDashing = false;
+		animator.SetBool("Dash", false);
 		yield return new WaitUntil(() => m_Grounded);
 		canDash = true;
 	}
