@@ -1714,10 +1714,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1769624523}
   animator: {fileID: 0}
-  audiomanager: {fileID: 0}
+  hp: {fileID: 0}
   runSpeed: 80
-  jumpTimeCounter: 0
-  jumpTime: 0
 --- !u!60 &1769624522
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1773,7 +1771,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 0}
   m_WallCheck: {fileID: 0}
   coyoteFrames: 0
-  audiomanager: {fileID: 0}
+  WallJumpTime: 0
   m_Grounded: 0
   canDoubleJump: 1
   m_DashForce: 25
@@ -2679,6 +2677,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4289027136753415444, guid: d4ff5d37044263648943132d5487df78, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 878775437
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289027136753415444, guid: d4ff5d37044263648943132d5487df78, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4886430078260162968, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
@@ -2717,23 +2723,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5769209370044322610, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5769209370044322610, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5769209370044322610, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.9998661
+      value: 0.9999306
       objectReference: {fileID: 0}
     - target: {fileID: 5769209370044322610, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.016366098
+      value: -0.011782704
       objectReference: {fileID: 0}
     - target: {fileID: 5769209370044322610, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -178.65
       objectReference: {fileID: 0}
     - target: {fileID: 6796216570530485857, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_LocalPosition.x
