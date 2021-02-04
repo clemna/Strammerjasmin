@@ -999,6 +999,10 @@ PrefabInstance:
       propertyPath: change
       value: 
       objectReference: {fileID: 1257274302}
+    - target: {fileID: 1437646554071294985, guid: d4ff5d37044263648943132d5487df78, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1437646554071294987, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: audiomanager
       value: 
@@ -1039,17 +1043,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3027825141551175080, guid: d4ff5d37044263648943132d5487df78, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3112823650534820032, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4289027136753415444, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_SortingLayerID
-      value: 25394767
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4289027136753415444, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_SortingLayer
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5552891029693948439, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: fallMultiplier
@@ -1081,7 +1089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8808243064788602589, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -20.6
+      value: -20.945
       objectReference: {fileID: 0}
     - target: {fileID: 8808243064788602589, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_LocalPosition.z

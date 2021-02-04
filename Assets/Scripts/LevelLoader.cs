@@ -32,7 +32,10 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadCurrentLevel()
     {
-        UIManager.manager.ResetScore();
+        if (UIManager.manager != null)
+        {
+            UIManager.manager.ResetScore();
+        }
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
     }
 

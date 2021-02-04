@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0f;
     bool jump = false;
     bool dash = false;
+    private bool canmove = true;
 
     private void Awake()
     {
@@ -33,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hp.GetCurrent() >= 1)
+        if (hp.GetCurrent() >= 1 && canmove == true)
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
@@ -103,6 +104,10 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag.Equals("movingPlatform"))
         {
             this.transform.parent = collision.transform;
+        }
+        if (collision.gameObject.tag.Equals("Exit"))
+        {
+            canmove = false;
         }
     }
 
