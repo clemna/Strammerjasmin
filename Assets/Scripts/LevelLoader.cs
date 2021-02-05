@@ -46,7 +46,15 @@ public class LevelLoader : MonoBehaviour
 
     public void SkipLevel()
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        if ((SceneManager.GetActiveScene().buildIndex + 1) <= 16)
+        {
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        }
+        else
+        {
+            LoadFirstLevel();
+        }
+        
     }
 
     IEnumerator LoadLevel(int levelIndex)
