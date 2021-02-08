@@ -18,6 +18,9 @@ public class CharacterController2D : MonoBehaviour
 	//public float coyoteFrames;
 	public float hangTime = .2f;
 	private float hangCounter;
+
+	public float jumpBufferLength = .1f;
+	private float jumpBufferCount;
 	
 	public float WallJumpTime;
 
@@ -31,7 +34,7 @@ public class CharacterController2D : MonoBehaviour
 	private float limitFallSpeed = 25f; // Limit fall speed
 	
 
-	public bool canDoubleJump = true; //If player can double jump
+	public bool canDoubleJump = false; //If player can double jump
 	[SerializeField] private float m_DashForce = 25f;
 	private bool canDash = true;
 	private bool isDashing = false; //If player is dashing
@@ -126,7 +129,7 @@ public class CharacterController2D : MonoBehaviour
 			}
 			prevVelocityX = m_Rigidbody2D.velocity.x;*/
 		}
-
+		//Coyote Time
         if (IsGrounded())
         {
 			hangCounter = hangTime;
@@ -134,6 +137,16 @@ public class CharacterController2D : MonoBehaviour
         else
         {
 			hangCounter -= Time.deltaTime;
+        }
+
+        //manage input Buffer for Jump
+        if (Input.GetButtonDown("Jump"))
+        {
+			jumpBufferCount = jumpBufferLength;
+        }
+        else
+        {
+			jumpBufferCount -= Time.deltaTime;
         }
 
         //Coyote Time
@@ -235,13 +248,14 @@ public class CharacterController2D : MonoBehaviour
 				}
 			}
 			// If the player should jump... (coyoteTimer < coyoteFrames && jump)
-			if ((IsGrounded() && jump) || (hangCounter > 0f && jump))
+			if (jumpBufferCount >= 0 && hangCounter > 0f )
 			{
 				// Add a vertical force to the player.
 				//animator.SetBool("IsJumping", true);
 				animator.SetBool("Jump", true);
 				m_Grounded = false;
 				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+				jumpBufferCount = 0;
 				canDoubleJump = true;
                 if (AudioManager.instance != null)
                 {
