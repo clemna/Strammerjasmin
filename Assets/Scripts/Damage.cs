@@ -30,8 +30,16 @@ public class Damage : MonoBehaviour
         {
             return;
         }
-        float offset = rigid.velocity.magnitude;
-        GameObject.Instantiate(hitEffect, transform.position, transform.rotation * Quaternion.Euler(Vector3.up * 180f));
+        if (other.gameObject.tag == "Enemy")
+        {
+            return;
+        }
+        if (other.gameObject.tag == "Player")
+        {
+            float offset = rigid.velocity.magnitude;
+            GameObject.Instantiate(hitEffect, transform.position, transform.rotation * Quaternion.Euler(Vector3.up * 180f));
+        }
+        
 
     }
 }
