@@ -14,9 +14,13 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private LayerMask m_WhatIsWall;                            // A mask determining what is wall to the character
 	[SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_WallCheck;
-	private float coyoteTimer;
-	public float coyoteFrames;
+	//private float coyoteTimer;
+	//public float coyoteFrames;
+	public float hangTime = .2f;
+	private float hangCounter;
+	
 	public float WallJumpTime;
+
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	public bool m_Grounded;            // Whether or not the player is grounded.
@@ -123,15 +127,24 @@ public class CharacterController2D : MonoBehaviour
 			prevVelocityX = m_Rigidbody2D.velocity.x;*/
 		}
 
+        if (IsGrounded())
+        {
+			hangCounter = hangTime;
+        }
+        else
+        {
+			hangCounter -= Time.deltaTime;
+        }
+
         //Coyote Time
-        if (m_Grounded)
+        /*if (m_Grounded)
         {
 			coyoteTimer = 0;
         }
         else
         {
 			coyoteTimer++;
-        }
+        }*/
 
 		//Debug.LogWarning(coyoteTimer);
 
@@ -221,8 +234,8 @@ public class CharacterController2D : MonoBehaviour
 					Flip();
 				}
 			}
-			// If the player should jump...
-			if ((IsGrounded() && jump) || (coyoteTimer < coyoteFrames && jump))
+			// If the player should jump... (coyoteTimer < coyoteFrames && jump)
+			if ((IsGrounded() && jump) || (hangCounter > 0f && jump))
 			{
 				// Add a vertical force to the player.
 				//animator.SetBool("IsJumping", true);
