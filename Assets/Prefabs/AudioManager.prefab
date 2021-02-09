@@ -46,63 +46,63 @@ MonoBehaviour:
   sounds:
   - name: Collect Soul
     clip: {fileID: 8300000, guid: 087f7534d3cd92a4c9deb5198cd675d2, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     mixerGroup: {fileID: 1484165443369530051, guid: 521e2b96ad263d44b92b9393a0efa997, type: 2}
     source: {fileID: 0}
   - name: Steps
-    clip: {fileID: 8300000, guid: b6ac0f1ce1f28f64cb198d23b17bc55e, type: 3}
-    volume: 0
-    pitch: 0.1
+    clip: {fileID: 8300000, guid: 96b93fe10bfc1624a953bd1cc3170eb7, type: 3}
+    volume: 0.045
+    pitch: 1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Spawn Fireball
     clip: {fileID: 8300000, guid: 19cfb9b5387c9db48962f59c0777c312, type: 3}
-    volume: 0
+    volume: 0.038
     pitch: 1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Flying Fireball
     clip: {fileID: 8300000, guid: c72b461c914c5474499ef8b5df4735c7, type: 3}
-    volume: 0
+    volume: 0.169
     pitch: 1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Hit Fireball
     clip: {fileID: 8300000, guid: 43a565493e99cdf449c42c5830a4428c, type: 3}
-    volume: 0
+    volume: 0.045
     pitch: 1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Dash
     clip: {fileID: 8300000, guid: 33a50b36fef03df40b6244b192b1d62f, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Jump
     clip: {fileID: 8300000, guid: 7eac48af14d791745bb4269ad039c9bd, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     mixerGroup: {fileID: 1484165443369530051, guid: 521e2b96ad263d44b92b9393a0efa997, type: 2}
     source: {fileID: 0}
   - name: Double Jump
     clip: {fileID: 8300000, guid: 7eac48af14d791745bb4269ad039c9bd, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     mixerGroup: {fileID: 1484165443369530051, guid: 521e2b96ad263d44b92b9393a0efa997, type: 2}
     source: {fileID: 0}
   - name: Wall Slide
     clip: {fileID: 8300000, guid: 61b8e7eb1c04e034fb6413467cf657d9, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     mixerGroup: {fileID: 0}
@@ -116,7 +116,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Death Sound
     clip: {fileID: 8300000, guid: 3bdf6067682c8b94cbd341554041f682, type: 3}
-    volume: 0.626
+    volume: 0.6
     pitch: 1
     loop: 0
     mixerGroup: {fileID: 0}
