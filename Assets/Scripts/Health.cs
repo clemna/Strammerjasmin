@@ -80,7 +80,7 @@ public class Health : MonoBehaviour
         Eyes.SetActive(false);
         animator.SetInteger("Health", 0);
         
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         animator.SetInteger("Health", 1);
         Destroy(gameObject);
         change.LoadCurrentLevel();
