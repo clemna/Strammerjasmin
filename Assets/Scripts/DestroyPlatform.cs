@@ -12,9 +12,6 @@ public class DestroyPlatform : MonoBehaviour
     private ContactPoint2D[] hitObject;
     private Vector2 hit;
 
-    public Animator animator;
-
-
     // Start is called before the first frame update
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -46,7 +43,6 @@ public class DestroyPlatform : MonoBehaviour
                 {
                     // Sides
                     Vector2 spawnPosition = transform.position;
-                    animator.SetBool("Contact", true);
                     Invoke("DestroyPlat", TimeToDespawn);
                     //objectToDisable.SetActive(false);
                     //Invoke("RespawnPlatform", RespawnDelay);
@@ -84,9 +80,7 @@ public class DestroyPlatform : MonoBehaviour
             }
 
         }*/
-
         Invoke("RespawnPlatform", RespawnDelay);
-        
     }
 
     void DestroyPlat()
@@ -97,8 +91,6 @@ public class DestroyPlatform : MonoBehaviour
 
     void RespawnPlatform()
     {
-        animator.SetBool("Contact", false);
         objectToDisable.SetActive(true);
-        
     }
 }
