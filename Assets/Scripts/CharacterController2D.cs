@@ -21,6 +21,8 @@ public class CharacterController2D : MonoBehaviour
 
 	public float jumpBufferLength = .1f;
 	private float jumpBufferCount;
+
+	private int extraJumps = 1;
 	
 	public float WallJumpTime;
 
@@ -133,6 +135,7 @@ public class CharacterController2D : MonoBehaviour
         if (IsGrounded())
         {
 			hangCounter = hangTime;
+			extraJumps = 1;
         }
         else
         {
@@ -148,6 +151,8 @@ public class CharacterController2D : MonoBehaviour
         {
 			jumpBufferCount -= Time.deltaTime;
         }
+
+        
 
         //Coyote Time
         /*if (m_Grounded)
@@ -256,6 +261,7 @@ public class CharacterController2D : MonoBehaviour
 				m_Grounded = false;
 				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 				jumpBufferCount = 0;
+				hangCounter = 0;
 				canDoubleJump = true;
                 if (AudioManager.instance != null)
                 {
@@ -265,9 +271,11 @@ public class CharacterController2D : MonoBehaviour
 				particleJumpDown.Play();
 				particleJumpUp.Play();
 			}
-			else if (!IsGrounded() && jump && canDoubleJump && !isWallSliding)
-			{
-				canDoubleJump = false;
+			//else if (!IsGrounded() && jump && canDoubleJump && !isWallSliding)
+			else if (!IsGrounded() && jump && extraJumps > 0 && !isWallSliding)
+					{
+				//canDoubleJump = false;
+				extraJumps--;
 				m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
 				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce / 1.2f));
 				/*if (!jumpheld && Vector2.Dot(m_Rigidbody2D.velocity, Vector2.up) > 0)

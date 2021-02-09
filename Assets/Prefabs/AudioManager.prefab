@@ -53,8 +53,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Steps
     clip: {fileID: 8300000, guid: b6ac0f1ce1f28f64cb198d23b17bc55e, type: 3}
-    volume: 1
-    pitch: 1
+    volume: 0
+    pitch: 0.1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
@@ -105,5 +105,12 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: LevelMusik
+    clip: {fileID: 8300000, guid: 125aa4220a172b9489b2c61a5ebbf443, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
