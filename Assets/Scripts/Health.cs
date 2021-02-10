@@ -84,7 +84,7 @@ public class Health : MonoBehaviour
         
         yield return new WaitForSeconds(1.5f);
         animator.SetInteger("Health", 1);
-        Destroy(gameObject);
+        //Destroy(gameObject);
         change.LoadCurrentLevel();
     }
 }
