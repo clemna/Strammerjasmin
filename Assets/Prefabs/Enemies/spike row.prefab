@@ -50,7 +50,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5643420139734731823
 Transform:
   m_ObjectHideFlags: 0
@@ -116,6 +116,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2720948486374470600}
     m_Modifications:
+    - target: {fileID: 2515664966701163157, guid: aae40fd33951f6f4fba701eeac4f6908, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3185840795612466619, guid: aae40fd33951f6f4fba701eeac4f6908, type: 3}
       propertyPath: m_Name
       value: spike (12)
@@ -186,6 +190,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2720948486374470600}
     m_Modifications:
+    - target: {fileID: 2515664966701163157, guid: aae40fd33951f6f4fba701eeac4f6908, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3185840795612466619, guid: aae40fd33951f6f4fba701eeac4f6908, type: 3}
       propertyPath: m_Name
       value: spike (14)
@@ -256,6 +264,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2720948486374470600}
     m_Modifications:
+    - target: {fileID: 2515664966701163157, guid: aae40fd33951f6f4fba701eeac4f6908, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3185840795612466619, guid: aae40fd33951f6f4fba701eeac4f6908, type: 3}
       propertyPath: m_Name
       value: spike (13)
