@@ -448,6 +448,8 @@ public class CharacterController2D : MonoBehaviour
 
 	IEnumerator DashCooldown()
 	{
+		animator.SetBool("Jump", false);
+		animator.SetFloat("Walk", 0);
 		animator.SetBool("Dash", true);
 		float gravity = m_Rigidbody2D.gravityScale;
 		m_Rigidbody2D.gravityScale = 0;
@@ -457,7 +459,7 @@ public class CharacterController2D : MonoBehaviour
 		yield return new WaitForSeconds(0.1f);
 		m_Rigidbody2D.gravityScale = gravity;
 		isDashing = false;
-		canDoubleJump = true;
+		//canDoubleJump = true;
 		animator.SetBool("Dash", false);
 		yield return new WaitUntil(() => m_Grounded);
 		canDash = true;

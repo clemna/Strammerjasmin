@@ -74,10 +74,10 @@ public class PlayerMovement : MonoBehaviour
 
                 dash = true;
             }
-            if (Mathf.Abs(horizontalMove) > 0 && AudioManager.instance != null && jump == false && dash == false)
+            /*if (Mathf.Abs(horizontalMove) > 0 && AudioManager.instance != null && jump == false && dash == false)
             {
                 AudioManager.instance.Play("Steps");
-            }
+            }*/
         }
         else
         {

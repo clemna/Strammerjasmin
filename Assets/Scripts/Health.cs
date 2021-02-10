@@ -78,6 +78,8 @@ public class Health : MonoBehaviour
     IEnumerator DeathAnimation(Rigidbody2D rb)
     {
         Eyes.SetActive(false);
+        animator.SetBool("Jump", false);
+        animator.SetFloat("Walk", 0);
         animator.SetInteger("Health", 0);
         
         yield return new WaitForSeconds(1.5f);
