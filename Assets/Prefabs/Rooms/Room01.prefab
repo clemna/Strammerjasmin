@@ -132,7 +132,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -875,8 +875,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1271056467
-  m_SortingLayer: -6
+  m_SortingLayerID: 641757581
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 68526f2be703e2443be90d51a0f4dbf3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3490,11 +3490,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8264065895096195240, guid: 92a8ec1d6d1abf544972b22bbef7afb6, type: 3}
       propertyPath: m_SortingLayerID
-      value: 761013767
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8264065895096195240, guid: 92a8ec1d6d1abf544972b22bbef7afb6, type: 3}
       propertyPath: m_SortingLayer
-      value: -7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92a8ec1d6d1abf544972b22bbef7afb6, type: 3}
