@@ -253,7 +253,7 @@ public class CharacterController2D : MonoBehaviour
 				}
 			}
 			// If the player should jump... (coyoteTimer < coyoteFrames && jump)
-			if (jumpBufferCount >= 0 && hangCounter > 0f )
+			if (jumpBufferCount >= 0f && hangCounter > 0f )
 			{
 				// Add a vertical force to the player.
 				//animator.SetBool("IsJumping", true);
