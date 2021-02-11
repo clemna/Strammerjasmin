@@ -77,6 +77,7 @@ public class Health : MonoBehaviour
 
     IEnumerator DeathAnimation(Rigidbody2D rb)
     {
+        AudioManager.instance.Play("Death Sound");
         Eyes.SetActive(false);
         animator.SetBool("Jump", false);
         animator.SetFloat("Walk", 0);

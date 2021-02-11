@@ -26,9 +26,13 @@ public class PlayerMovement : MonoBehaviour
     bool dash = false;
     private bool canmove = true;
 
+    public float idletime = 15f;
+    private float idlecounter = 0;
+
     private void Awake()
     {
         player = this;
+        idlecounter = idletime;
     }
 
     // Update is called once per frame
@@ -78,6 +82,24 @@ public class PlayerMovement : MonoBehaviour
             {
                 AudioManager.instance.Play("Steps");
             }*/
+
+            if (Mathf.Abs(horizontalMove) == 0)
+            {
+                if(idlecounter <= 0)
+                {
+                    AudioManager.instance.Play("Bored Idle");
+                    idlecounter = idletime;
+                }
+                else
+                {
+                    idlecounter -= Time.deltaTime;
+                }
+
+            }
+            else
+            {
+                idlecounter = idletime;
+            }
         }
         else
         {
