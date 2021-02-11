@@ -1028,6 +1028,10 @@ PrefabInstance:
       propertyPath: WallJumpTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1437646554071295477, guid: d4ff5d37044263648943132d5487df78, type: 3}
+      propertyPath: m_WallJumpForce
+      value: 1250
+      objectReference: {fileID: 0}
     - target: {fileID: 1931066631620829163, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -1102,11 +1106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8808243064788602589, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -63.57
+      value: -66.55
       objectReference: {fileID: 0}
     - target: {fileID: 8808243064788602589, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -18.55
+      value: -31.96
       objectReference: {fileID: 0}
     - target: {fileID: 8808243064788602589, guid: d4ff5d37044263648943132d5487df78, type: 3}
       propertyPath: m_LocalPosition.z

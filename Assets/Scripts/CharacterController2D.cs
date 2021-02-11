@@ -9,6 +9,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;  // How much to smooth out the movement
 	[SerializeField] private float m_WallJumpHeight = 400;
+	[SerializeField] private float m_WallJumpForce = 700;
 	[SerializeField] private bool m_AirControl = false;                         // Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
 	[SerializeField] private LayerMask m_WhatIsWall;                            // A mask determining what is wall to the character
@@ -328,7 +329,7 @@ public class CharacterController2D : MonoBehaviour
 				{
 					animator.SetBool("Jump", true);
 					m_Rigidbody2D.velocity = new Vector2(0f, 0f);
-					m_Rigidbody2D.AddForce(new Vector2(transform.localScale.x * m_JumpForce * 4.0f, m_WallJumpHeight));
+					m_Rigidbody2D.AddForce(new Vector2(transform.localScale.x * m_WallJumpForce * 4.0f, m_WallJumpHeight));
 					//StartCoroutine(WaitToMove(WallJumpTime));
 					jumpWallStartX = transform.position.x;
 					limitVelOnWallJump = true;

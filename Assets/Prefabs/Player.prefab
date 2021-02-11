@@ -558,7 +558,6 @@ GameObject:
   - component: {fileID: 8808243064788602589}
   - component: {fileID: 1437646554071295476}
   - component: {fileID: 1437646554071295479}
-  - component: {fileID: 1437646554071294985}
   - component: {fileID: 1437646554071295473}
   - component: {fileID: 1437646554071295477}
   - component: {fileID: 1437646554071294987}
@@ -650,25 +649,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8025777, y: 4.0313025}
   m_EdgeRadius: 0
---- !u!95 &1437646554071294985
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3112823650534820032}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 66d4b77870bdce44e8a17f9c29d5c607, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1437646554071295473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,9 +662,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1437646554071295477}
-  animator: {fileID: 1437646554071294985}
+  animator: {fileID: 0}
   hp: {fileID: 1437646554071294984}
   runSpeed: 40
+  idletime: 15
 --- !u!114 &1437646554071295477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,6 +681,7 @@ MonoBehaviour:
   m_JumpForce: 700
   m_MovementSmoothing: 0.05
   m_WallJumpHeight: 750
+  m_WallJumpForce: 1250
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
@@ -769,7 +751,7 @@ MonoBehaviour:
   PlayerToSpawn: {fileID: 8808243064788602589}
   Eyes: {fileID: 3027825141551175080}
   change: {fileID: 0}
-  animator: {fileID: 1437646554071294985}
+  animator: {fileID: 0}
 --- !u!114 &5552891029693948439
 MonoBehaviour:
   m_ObjectHideFlags: 0
