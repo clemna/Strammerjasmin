@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
+    private SpriteRenderer tut;
+    void Start()
+    {
+        tut = this.gameObject.GetComponent<SpriteRenderer>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         
             if (other.gameObject.tag == "Player")
             {
-            this.gameObject.SetActive(true);
+            tut.enabled = true;
+            
             }
 
         
@@ -20,7 +26,8 @@ public class Tutorial : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            this.gameObject.SetActive(false);
+            tut.enabled = false;
+            //this.gameObject.SetActive(false);
         }
     }
 

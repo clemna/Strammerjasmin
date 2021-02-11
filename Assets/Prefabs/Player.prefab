@@ -682,14 +682,14 @@ MonoBehaviour:
   m_JumpForce: 700
   m_MovementSmoothing: 0.05
   m_WallJumpHeight: 750
-  m_WallJumpForce: 700
+  m_WallJumpForce: 1250
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   m_WhatIsWall:
     serializedVersion: 2
-    m_Bits: 6199
+    m_Bits: 567
   m_GroundCheck: {fileID: 1437646554911827514}
   m_WallCheck: {fileID: 1437646554210457467}
   hangTime: 0.2
