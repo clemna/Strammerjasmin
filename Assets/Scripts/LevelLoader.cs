@@ -49,7 +49,7 @@ public class LevelLoader : MonoBehaviour
         {
             UIManager.manager.ResetUI();
         }
-        StartCoroutine(LoadLevel(0));
+        StartCoroutine(LoadLevel(1));
     }
 
     public void SkipLevel()
