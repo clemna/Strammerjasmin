@@ -6,30 +6,26 @@ public class EnemyControler : MonoBehaviour
 {
     public float speed;
     public bool moveRight;
-    AudioSource aud;
-    private void Start()
-    {
-        aud = GetComponent<AudioSource>();
-    }
+   
 
     private void Update()
     {
         if (moveRight)
         {
             transform.Translate(2 * Time.deltaTime * speed, 0, 0);
-            if (AudioManager.instance != null && aud.isPlaying == false)
+            /*if (AudioManager.instance != null && aud.isPlaying == false)
             {
                 AudioManager.instance.Play("Flying Fireball");
-            }
+            }*/
         }
         else
         {
             transform.Translate(-2 * Time.deltaTime * speed, 0, 0);
-            if (AudioManager.instance != null && aud.isPlaying == false)
+            /*if (AudioManager.instance != null && aud.isPlaying == false)
             {
                 
                 AudioManager.instance.Play("Flying Fireball");
-            }
+            }*/
 
         }
     }
