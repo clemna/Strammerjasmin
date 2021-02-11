@@ -117,6 +117,12 @@ public class UIManager : MonoBehaviour
         sceneSouls = 0;
     }
 
+    public void ResetUI()
+    {
+        sceneSouls = 0;
+        souls = 0;
+    }
+
     IEnumerator ShowUI()
     {
         this.gameObject.SetActive(true);

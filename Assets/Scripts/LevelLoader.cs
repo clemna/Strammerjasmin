@@ -45,6 +45,10 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadFirstLevel()
     {
+        if (UIManager.manager != null)
+        {
+            UIManager.manager.ResetUI();
+        }
         StartCoroutine(LoadLevel(0));
     }
 
