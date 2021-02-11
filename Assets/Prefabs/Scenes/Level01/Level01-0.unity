@@ -372,6 +372,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1800838981626036155, guid: 885be5f144c661d49bb54e402159def2, type: 3}
+      propertyPath: lvlmanager
+      value: 
+      objectReference: {fileID: 429343020}
     - target: {fileID: 2000299482372307062, guid: 885be5f144c661d49bb54e402159def2, type: 3}
       propertyPath: m_Name
       value: Room00
@@ -419,6 +423,10 @@ PrefabInstance:
     - target: {fileID: 2000299482372307063, guid: 885be5f144c661d49bb54e402159def2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208118274166670372, guid: 885be5f144c661d49bb54e402159def2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6120892487520281843, guid: 885be5f144c661d49bb54e402159def2, type: 3}
       propertyPath: m_SortingOrder
