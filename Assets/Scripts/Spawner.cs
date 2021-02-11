@@ -33,10 +33,10 @@ public class Spawner : MonoBehaviour
             else
             {
                 GameObject newBullet = GameObject.Instantiate(somethingToSpawn, spawnPosition, transform.rotation);
-                if (AudioManager.instance != null)
+               /* if (AudioManager.instance != null)
                 {
                     AudioManager.instance.Play("Spawn Fireball");
-                }
+                }*/
                 //FindObjectOfType<AudioManager>().Play("Spawn Fireball");
             }
             
@@ -54,10 +54,10 @@ public class Spawner : MonoBehaviour
                 Vector2 spawnPosition;
                 spawnPosition = transform.position;
                 GameObject newBullet = GameObject.Instantiate(somethingToSpawn, spawnPosition, transform.rotation);
-            if (AudioManager.instance != null)
+            /*if (AudioManager.instance != null)
             {
                 AudioManager.instance.Play("Spawn Fireball");
-            }
+            }*/
 
         }
         
