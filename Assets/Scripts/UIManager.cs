@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -15,10 +16,13 @@ public class UIManager : MonoBehaviour
 
     static public int souls = 0;
     static private int sceneSouls = 0;
+    static
     private Health playerHealth;
 
     [SerializeField]
-    private Text scoreText = null;
+    private TMP_Text scoreText = null;
+    [SerializeField]
+    private GameObject Collectables = null;
 
     private float lastPauseUIToggle;
 
@@ -89,6 +93,7 @@ public class UIManager : MonoBehaviour
     private void LateUpdate()
     {
         scoreText.text = souls.ToString();
+        
     }
 
     public void TogglePauseUI()
@@ -103,6 +108,7 @@ public class UIManager : MonoBehaviour
 
     public void AddScore()
     {
+        StartCoroutine(ShowUI(Collectables));
         souls++;
         sceneSouls++;
     }
@@ -123,11 +129,11 @@ public class UIManager : MonoBehaviour
         souls = 0;
     }
 
-    IEnumerator ShowUI()
+    IEnumerator ShowUI(GameObject collect)
     {
-        this.gameObject.SetActive(true);
-        yield return new WaitForSeconds(3);
-        this.gameObject.SetActive(false);
+        collect.SetActive(true);
+        yield return new WaitForSeconds(7);
+        collect.gameObject.SetActive(false);
     }
 
 
