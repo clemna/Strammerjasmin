@@ -35,6 +35,10 @@ public class VideoControl : MonoBehaviour
         {
             StartCoroutine(WaitLogos());
         }
+        if (this.gameObject.tag == "End")
+        {
+            StartCoroutine(WaitEnd());
+        }
     }
 
 
@@ -46,6 +50,25 @@ public class VideoControl : MonoBehaviour
         Loader.LoadNextLevel();
 
         //SceneManager.LoadScene(levelIndex);
+
+    }
+
+    IEnumerator WaitEnd()
+    {
+
+        yield return new WaitForSeconds(77);
+
+        Loader.LoadFirstLevel();
+
+        //SceneManager.LoadScene(levelIndex);
+
+    }
+
+    IEnumerator WaitCredits()
+    {
+        yield return new WaitForSeconds(49);
+
+        Loader.LoadFirstLevel();
 
     }
 }
