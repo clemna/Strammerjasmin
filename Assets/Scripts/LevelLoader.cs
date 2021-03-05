@@ -17,6 +17,12 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
+    public void LoadLevel(string lvl)
+    {
+        StartCoroutine(LoadLevelName(lvl));
+
+    }
+
     public void LoadNextLevel()
     {
         if (UIManager.manager != null)
@@ -73,5 +79,15 @@ public class LevelLoader : MonoBehaviour
 
         SceneManager.LoadScene(levelIndex);
         
+    }
+
+    IEnumerator LoadLevelName(string levelIndex)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(levelIndex);
+
     }
 }
