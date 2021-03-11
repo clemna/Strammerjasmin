@@ -20,6 +20,9 @@ public class CharacterController2D : MonoBehaviour
 	public float hangTime = .2f;
 	private float hangCounter;
 
+	public float wallTime = .5f;
+	private float wallCounter;
+
 	public float jumpBufferLength = .1f;
 	private float jumpBufferCount;
 
@@ -143,8 +146,18 @@ public class CharacterController2D : MonoBehaviour
 			hangCounter -= Time.deltaTime;
         }
 
-        //manage input Buffer for Jump
-        if (Input.GetButtonDown("Jump"))
+		//Coyote Time WallJump
+		if (IsWall())
+		{
+			wallCounter = wallTime;
+		}
+		else
+		{
+			hangCounter -= Time.deltaTime;
+		}
+
+		//manage input Buffer for Jump
+		if (Input.GetButtonDown("Jump"))
         {
 			jumpBufferCount = jumpBufferLength;
         }
@@ -325,7 +338,7 @@ public class CharacterController2D : MonoBehaviour
 					}
 				}
 
-				if (jump && isWallSliding)
+				if ((jump && isWallSliding) || (jump && wallCounter > 0))
 				{
 					animator.SetBool("Jump", true);
 					m_Rigidbody2D.velocity = new Vector2(0f, 0f);
